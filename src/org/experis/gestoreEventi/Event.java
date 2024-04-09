@@ -40,5 +40,13 @@ public class Event {
 
     // Setter
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
     // Methods
 }
