@@ -5,9 +5,9 @@ import java.util.Scanner;
 
 public class Event {
     // Attributes
-    String title;
-    LocalDate date;
-    int totaltSeats, reservedSeats;
+    private String title;
+    private LocalDate date;
+    private int totaltSeats, reservedSeats;
 
     // Constructor
     // TODO change Exception
