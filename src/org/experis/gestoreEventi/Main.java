@@ -12,14 +12,15 @@ public class Main {
 //        Event event = new Event("pippo", LocalDate.of(2025,10,10),-10);
 //        System.out.println(event);
 
-        while (!exit){
+        while (!exit) {
             System.out.println("Do you want insert a new event? (Y/N)");
             String response = scan.nextLine();
-            switch (response.toUpperCase()){
+            switch (response.toUpperCase()) {
                 case "Y":
                     Event event = createNewEvent(scan);
                     System.out.println(event);
-                    do {
+                    boolean makeReservations = true;
+                    while (makeReservations) {
                         System.out.println("How many reservations do you want to make?");
                         int numOfReservations = Integer.parseInt(scan.nextLine());
                         int successfulReservations = 0;
@@ -39,8 +40,37 @@ public class Main {
                         System.out.println("Added " + successfulReservations + " reservations.");
                         System.out.println("Available seats: " + (event.getTotalSeats() - event.getReservedSeats()));
                         System.out.println("Do you want to make more reservations for this event? (Y/N)");
-                        response = scan.nextLine();
-                    } while (response.equalsIgnoreCase("Y"));
+                        String moreReservations = scan.nextLine();
+                        if (!moreReservations.equalsIgnoreCase("Y")) {
+                            makeReservations = false;
+                            boolean deleteReservations = true;
+                            while (deleteReservations) {
+                                System.out.println("Do you want to delete some reservations for this event? (Y/N)");
+                                String deleteReservation = scan.nextLine();
+                                if (deleteReservation.equalsIgnoreCase("Y")) {
+                                    System.out.println("How many reservations do you want to delete?");
+                                    int deleteCount = Integer.parseInt(scan.nextLine());
+                                    int successfulDeleteReservations = 0;
+                                    if (deleteCount <= event.getReservedSeats()) {
+                                        for (int i = 0; i < deleteCount; i++) {
+                                            boolean success = event.cancelReservation();
+                                            if (success) {
+                                                successfulDeleteReservations++;
+                                            } else {
+                                                System.out.println("No more reservations to cancel.");
+                                                break;
+                                            }
+                                        }
+                                        System.out.println("Cancelled " + successfulDeleteReservations + " reservations.");
+                                    } else {
+                                        System.out.println("The number of reservations to cancel exceeds the number of reservations made.");
+                                    }
+                                } else {
+                                    deleteReservations = false;
+                                }
+                            }
+                        }
+                    }
                     break;
                 case "N":
                     exit = true;
