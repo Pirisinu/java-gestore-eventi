@@ -49,4 +49,8 @@ public class Concert extends Event{
     }
     // Methods Override
 
+    @Override
+    public String toString() {
+        return getFormattedDate() + " " + getFormattedTime() + " - " + getTitle() + " - " + getFormattedPrice();
+    }
 }
