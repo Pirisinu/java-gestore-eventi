@@ -49,4 +49,10 @@ public class Event {
     }
 
     // Methods
+    public boolean reservation(){
+        return false;
+    }
+    public boolean cancelReservation(){
+        return false;
+    }
 }
