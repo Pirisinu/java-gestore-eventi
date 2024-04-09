@@ -50,10 +50,16 @@ public class Event {
 
     // Methods
     public boolean reservation(){
-        return false;
+        if (reservedSeats < totaltSeats){
+            reservedSeats++;
+            return true;
+        }else return false;
     }
     public boolean cancelReservation(){
-        return false;
+        if (reservedSeats > 0){
+            reservedSeats--;
+            return true;
+        }else return false;
     }
 
     // Methods Overload
