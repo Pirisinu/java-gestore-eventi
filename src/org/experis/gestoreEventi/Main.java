@@ -21,8 +21,10 @@ public class Main {
                     System.out.println(event);
                     System.out.println("How many reservations do you want to make?");
                     int numOfReservations = Integer.parseInt(scan.nextLine());
-                    for (int i = 0; i < numOfReservations; i++) {
-
+                    if (numOfReservations <= (event.getTotalSeats() - event.getReservedSeats())) {
+                        System.out.println("adding");
+                    } else {
+                        System.out.println("The number of reservations exceeds the available seats.");
                     }
                     break;
                 case "N":
