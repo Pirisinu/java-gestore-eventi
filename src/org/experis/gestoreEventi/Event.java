@@ -1,6 +1,7 @@
 package org.experis.gestoreEventi;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class Event {
     // Attributes
@@ -60,6 +61,22 @@ public class Event {
             reservedSeats--;
             return true;
         }else return false;
+    }
+
+    public static Event createEvent(Scanner scan){
+        System.out.print("Insert event name: ");
+        String eventName = scan.nextLine();
+        System.out.print("Insert event year: ");
+        int eventYear = Integer.parseInt(scan.nextLine());
+        System.out.print("Insert event month: ");
+        int eventMonth = Integer.parseInt(scan.nextLine());
+        System.out.print("Insert event day: ");
+        int eventDay = Integer.parseInt(scan.nextLine());
+        System.out.print("Insert event total seats: ");
+        int eventTotalSeats = Integer.parseInt(scan.nextLine());
+
+        LocalDate eventDate = LocalDate.of(eventYear, eventMonth, eventDay);
+        return new Event(eventName, eventDate, eventTotalSeats);
     }
 
     // Methods Overload

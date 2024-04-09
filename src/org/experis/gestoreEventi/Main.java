@@ -17,19 +17,13 @@ public class Main {
             String response = scan.nextLine();
             switch (response.toUpperCase()){
                 case "Y":
-                    System.out.print("Insert event name: ");
-                    String eventName = scan.nextLine();
-                    System.out.print("Insert event year: ");
-                    int eventYear = Integer.parseInt(scan.nextLine());
-                    System.out.print("Insert event month: ");
-                    int eventMonth = Integer.parseInt(scan.nextLine());
-                    System.out.print("Insert event day: ");
-                    int eventDay = Integer.parseInt(scan.nextLine());
-                    System.out.print("Insert event total seats: ");
-                    int eventTotalSeats = Integer.parseInt(scan.nextLine());
+                    Event event = createNewEvent(scan);
+                    System.out.println(event);
+                    System.out.println("How many reservations do you want to make?");
+                    int numOfReservations = Integer.parseInt(scan.nextLine());
+                    for (int i = 0; i < numOfReservations; i++) {
 
-                    Event event = new Event(eventName, LocalDate.of(eventYear,eventMonth,eventDay), eventTotalSeats);
-                    System.out.println("");
+                    }
                     break;
                 case "N":
                     exit = true;
@@ -40,5 +34,15 @@ public class Main {
         }
 
         scan.close();
+    }
+    public static Event createNewEvent(Scanner scan) {
+        try {
+            Event event = Event.createEvent(scan);
+            System.out.println("New event created: " + event);
+            return event;
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error creating event: " + e.getMessage());
+        }
+        return null;
     }
 }
