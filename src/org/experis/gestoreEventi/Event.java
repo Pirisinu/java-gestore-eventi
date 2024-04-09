@@ -12,8 +12,8 @@ public class Event {
     // TODO change Exception
     public Event(String title, LocalDate date, int totaltSeats) {
         this.title = title;
-        if (LocalDate.now().isBefore(date)){
-            throw new IllegalArgumentException("Enter a date later than today.");
+        if (LocalDate.now().isAfter(date)){
+            throw new IllegalArgumentException("Enter a date after than today.");
         } else this.date = date;
 
         if (totaltSeats < 0){
