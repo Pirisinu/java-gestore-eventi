@@ -7,17 +7,17 @@ public class Event {
     // Attributes
     private String title;
     private LocalDate date;
-    private int totaltSeats, reservedSeats;
+    private int totalSeats, reservedSeats;
 
     // Constructor
     // TODO change Exception
-    public Event(String title, LocalDate date, int totaltSeats) {
+    public Event(String title, LocalDate date, int totalSeats) {
         this.title = title;
         if (LocalDate.now().isAfter(date)){
             throw new IllegalArgumentException("Enter a date after than today.");
         } else this.date = date;
 
-        if (totaltSeats < 0){
+        if (totalSeats < 0){
             throw new IllegalArgumentException("Enter a number greater than 0");
         } else this.reservedSeats = 0;
     }
@@ -31,8 +31,8 @@ public class Event {
         return date;
     }
 
-    public int getTotaltSeats() {
-        return totaltSeats;
+    public int getTotalSeats() {
+        return totalSeats;
     }
 
     public int getReservedSeats() {
@@ -51,7 +51,7 @@ public class Event {
 
     // Methods
     public boolean reservation(){
-        if (reservedSeats < totaltSeats){
+        if (reservedSeats < totalSeats){
             reservedSeats++;
             return true;
         }else return false;
@@ -86,7 +86,7 @@ public class Event {
         return "Event{" +
                 "title='" + title + '\'' +
                 ", date=" + date +
-                ", totaltSeats=" + totaltSeats +
+                ", totaltSeats=" + totalSeats +
                 ", reservedSeats=" + reservedSeats +
                 '}';
     }
