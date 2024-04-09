@@ -82,12 +82,13 @@ public class Event {
 
     // Methods Overload
 
+
     @Override
     public String toString() {
         return "Event{" +
                 "title='" + title + '\'' +
                 ", date=" + date +
-                ", totaltSeats=" + totalSeats +
+                ", totalSeats=" + totalSeats +
                 ", reservedSeats=" + reservedSeats +
                 '}';
     }
