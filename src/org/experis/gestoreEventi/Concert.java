@@ -1,6 +1,8 @@
 package org.experis.gestoreEventi;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class Concert extends Event{
@@ -40,6 +42,10 @@ public class Concert extends Event{
     public String getFormattedTime() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
         return time.format(formatter);
+    }
+
+    public String getFormattedPrice() {
+        return String.format("%.2f€", getPrice());
     }
     // Methods Override
 
