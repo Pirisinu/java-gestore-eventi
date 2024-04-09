@@ -13,7 +13,7 @@ public class Main {
 //        System.out.println(event);
 
         while (!exit){
-            System.out.println("Do you want insert a new event?");
+            System.out.println("Do you want insert a new event? (Y/N)");
             String response = scan.nextLine();
             switch (response.toUpperCase()){
                 case "Y":
@@ -29,14 +29,16 @@ public class Main {
                     int eventTotalSeats = Integer.parseInt(scan.nextLine());
 
                     Event event = new Event(eventName, LocalDate.of(eventYear,eventMonth,eventDay), eventTotalSeats);
-                    System.out.println(event);
+                    System.out.println("");
                     break;
                 case "N":
                     exit = true;
                     break;
+                default:
+                    System.out.println("Invalid input. Please enter 'Y' or 'N'.");
             }
         }
 
-
+        scan.close();
     }
 }
