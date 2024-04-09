@@ -1,5 +1,7 @@
 package org.experis.gestoreEventi;
 
+import org.experis.gestoreEventi.excetpion.EventException;
+
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -14,11 +16,11 @@ public class Event {
     public Event(String title, LocalDate date, int totalSeats) {
         this.title = title;
         if (LocalDate.now().isAfter(date)){
-            throw new IllegalArgumentException("Enter a date after than today.");
+            throw new EventException("Enter a date after than today.");
         } else this.date = date;
 
         if (totalSeats < 0){
-            throw new IllegalArgumentException("Enter a number greater than 0");
+            throw new EventException("Enter a number greater than 0");
         } else this.totalSeats = totalSeats;
         this.reservedSeats = 0;
     }
