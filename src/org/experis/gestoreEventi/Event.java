@@ -12,7 +12,6 @@ public class Event {
     private int totalSeats, reservedSeats;
 
     // Constructor
-    // TODO change Exception
     public Event(String title, LocalDate date, int totalSeats) {
         this.title = title;
         if (LocalDate.now().isAfter(date)){
