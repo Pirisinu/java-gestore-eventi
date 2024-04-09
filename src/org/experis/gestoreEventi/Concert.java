@@ -1,6 +1,7 @@
 package org.experis.gestoreEventi;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Concert extends Event{
     // Attributes
@@ -31,4 +32,15 @@ public class Concert extends Event{
         this.time = time;
     }
     // Methods
+    public String getFormattedDate() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return getDate().format(formatter);
+    }
+
+    public String getFormattedTime() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+        return time.format(formatter);
+    }
+    // Methods Override
+
 }
