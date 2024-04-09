@@ -66,19 +66,23 @@ public class Event {
     }
 
     public static Event createEvent(Scanner scan){
-        System.out.print("Insert event name: ");
-        String eventName = scan.nextLine();
-        System.out.print("Insert event year: ");
-        int eventYear = Integer.parseInt(scan.nextLine());
-        System.out.print("Insert event month: ");
-        int eventMonth = Integer.parseInt(scan.nextLine());
-        System.out.print("Insert event day: ");
-        int eventDay = Integer.parseInt(scan.nextLine());
-        System.out.print("Insert event total seats: ");
-        int eventTotalSeats = Integer.parseInt(scan.nextLine());
+        try {
+            System.out.print("Insert event name: ");
+            String eventName = scan.nextLine();
+            System.out.print("Insert event year: ");
+            int eventYear = Integer.parseInt(scan.nextLine());
+            System.out.print("Insert event month: ");
+            int eventMonth = Integer.parseInt(scan.nextLine());
+            System.out.print("Insert event day: ");
+            int eventDay = Integer.parseInt(scan.nextLine());
+            System.out.print("Insert event total seats: ");
+            int eventTotalSeats = Integer.parseInt(scan.nextLine());
 
-        LocalDate eventDate = LocalDate.of(eventYear, eventMonth, eventDay);
-        return new Event(eventName, eventDate, eventTotalSeats);
+            LocalDate eventDate = LocalDate.of(eventYear, eventMonth, eventDay);
+            return new Event(eventName, eventDate, eventTotalSeats);
+        } catch (NumberFormatException e) {
+            throw new EventException("Invalid input format for date or total seats.");
+        }
     }
 
     // Methods Overload
