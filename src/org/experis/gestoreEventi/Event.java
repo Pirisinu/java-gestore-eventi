@@ -55,4 +55,16 @@ public class Event {
     public boolean cancelReservation(){
         return false;
     }
+
+    // Methods Overload
+
+    @Override
+    public String toString() {
+        return "Event{" +
+                "title='" + title + '\'' +
+                ", date=" + date +
+                ", totaltSeats=" + totaltSeats +
+                ", reservedSeats=" + reservedSeats +
+                '}';
+    }
 }
