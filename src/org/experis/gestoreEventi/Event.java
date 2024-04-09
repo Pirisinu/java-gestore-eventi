@@ -19,7 +19,8 @@ public class Event {
 
         if (totalSeats < 0){
             throw new IllegalArgumentException("Enter a number greater than 0");
-        } else this.reservedSeats = 0;
+        } else this.totalSeats = totalSeats;
+        this.reservedSeats = 0;
     }
     // Getter
 
